@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-main',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
+  public loggedIn=false;
+
 
   lat2: number = 36.88426897212234;
   lng2: number = 10.31315332614148;
@@ -22,12 +26,20 @@ export class MainComponent implements OnInit {
   lat : number | undefined;
   lng: number | undefined;
 
-  constructor() {}
+  constructor(private loginService:LoginService) { }
 
   ngOnInit() {
+    this.loggedIn=this.loginService.isLoggedIn();
+
 
     this.getUserLocation()
       
+  }
+
+
+  logoutUser(){
+    this.loginService.logout();
+    location.reload();
   }
 
   private getUserLocation() {

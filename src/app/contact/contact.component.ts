@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  public loggedIn=false;
+  constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
+  this.loggedIn=this.loginService.isLoggedIn();
+  }
+  logoutUser(){
+    this.loginService.logout();
+    location.reload();
   }
 
 }

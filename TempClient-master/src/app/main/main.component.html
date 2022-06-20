@@ -72,8 +72,8 @@
                         
                         <a routerLink="/contact" routerLinkActive="active" class="nav-item nav-link">Nous contacter
 </a>
-                        <a routerLink="/login" routerLinkActive="active" class="nav-item nav-link">Connexion</a>
-                    </div>
+    <a  *ngIf="!loggedIn" routerLink="/login" routerLinkActive="active" class="nav-item nav-link">Connexion</a>
+                        <a  *ngIf="loggedIn" routerLink="/logout"  (click)="logoutUser()" routerLinkActive="active" class="nav-item nav-link">Deconnexion</a>                    </div>
                     <div class="ml-auto">
                         <a class="btn btn-custom" routerLink="/location" routerLinkActive="active">Prendre rendez-vous</a>
                     </div>

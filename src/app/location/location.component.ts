@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-location',
@@ -7,6 +8,17 @@ import { AgmCoreModule } from '@agm/core';
   styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
+
+
+
+  public loggedIn=false;
+
+ 
+
+    logoutUser(){
+      this.loginService.logout();
+      location.reload();
+    }
 
   lat2: number = 36.88426897212234;
   lng2: number = 10.31315332614148;
@@ -23,9 +35,12 @@ export class LocationComponent implements OnInit {
   lat : number | undefined;
   lng: number | undefined;
 
-  constructor() {}
+  constructor(private loginService:LoginService) { }
 
   ngOnInit() {
+
+    this.loggedIn=this.loginService.isLoggedIn();
+
 
     this.getUserLocation()
       

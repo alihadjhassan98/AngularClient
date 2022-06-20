@@ -29,7 +29,33 @@ a:focus {
     outline: none;
     text-decoration: none;
 }
+.button1 {
+    background-color: #cc1e2b; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 10px;
 
+}
+
+
+
+.button2 {
+  background-color: #202C45; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 10px;
+
+}
 .btn.btn-custom {
     padding: 10px 30px 12px 30px;
     text-align: center; 
